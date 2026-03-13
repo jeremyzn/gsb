@@ -117,8 +117,8 @@ namespace Interface
 
             #region paramètrage au niveau de la zone sélectionnée
 
-            dgv.RowsDefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
-            dgv.RowsDefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            dgv.RowsDefaultCellStyle.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dgv.RowsDefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
 
             #endregion
 
@@ -139,7 +139,6 @@ namespace Interface
             DataGridViewImageColumn colImg = new DataGridViewImageColumn();
             colImg.Name = "Supprimer";
             colImg.HeaderText = "";
-            colImg.Width = 30;
             colImg.Image = Resources.supprimer;
             colImg.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             colImg.ImageLayout = DataGridViewImageCellLayout.Zoom;

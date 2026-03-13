@@ -150,6 +150,7 @@
             dgvVisites.Name = "dgvVisites";
             dgvVisites.Size = new Size(835, 335);
             dgvVisites.TabIndex = 1;
+            dgvVisites.CellClick += dgvVisites_CellClick;
             dgvVisites.SelectionChanged += dgvVisites_SelectionChanged;
             // 
             // label3
