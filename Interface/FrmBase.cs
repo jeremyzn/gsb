@@ -58,7 +58,7 @@ namespace Interface
 
         private void imprimerRendezvous_Click(object sender, EventArgs e)
         {
-            // ouvrirFormulaire(new FrmVisiteImpression(session));
+            ouvrirFormulaire(new FrmVisiteImpression(session));
         }
 
         private void enregistrerBilan_Click(object sender, EventArgs e)
