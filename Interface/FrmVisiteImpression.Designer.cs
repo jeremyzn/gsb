@@ -80,7 +80,7 @@
             panelSaisi.Controls.Add(label2);
             panelSaisi.Controls.Add(label1);
             panelSaisi.Controls.Add(dptDebut);
-            panelSaisi.Controls.Add(message);
+            panelCentral.Controls.Add(message);
             panelSaisi.Controls.Add(imgApercu);
             panelSaisi.Controls.Add(imgImprimer);
             panelSaisi.Location = new Point(519, 28);
@@ -125,7 +125,8 @@
             // message
             // 
             message.AutoSize = true;
-            message.Location = new Point(18, 188);
+            // Position relative to the form so the label stays visible when panelSaisi is hidden
+            message.Location = new Point(537, 216);
             message.Name = "message";
             message.Size = new Size(38, 15);
             message.TabIndex = 2;
