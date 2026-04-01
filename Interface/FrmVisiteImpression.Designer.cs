@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVisiteImpression));
             panelCentral = new Panel();
             imgGsb = new PictureBox();
-            panelSaisi = new Panel();
-            dptFin = new DateTimePicker();
+            panelSaisie = new Panel();
+            dtpFin = new DateTimePicker();
             label2 = new Label();
             label1 = new Label();
-            dptDebut = new DateTimePicker();
+            dtpDebut = new DateTimePicker();
             message = new Label();
             imgApercu = new PictureBox();
             imgImprimer = new PictureBox();
@@ -45,7 +45,7 @@
             messageIntervale = new Label();
             panelCentral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgGsb).BeginInit();
-            panelSaisi.SuspendLayout();
+            panelSaisie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgApercu).BeginInit();
             ((System.ComponentModel.ISupportInitialize)imgImprimer).BeginInit();
             SuspendLayout();
@@ -57,7 +57,8 @@
             // panelCentral
             // 
             panelCentral.Controls.Add(imgGsb);
-            panelCentral.Controls.Add(panelSaisi);
+            panelCentral.Controls.Add(panelSaisie);
+            panelCentral.Controls.Add(message);
             panelCentral.Location = new Point(75, 88);
             panelCentral.Name = "panelCentral";
             panelCentral.Size = new Size(932, 409);
@@ -73,28 +74,27 @@
             imgGsb.TabIndex = 1;
             imgGsb.TabStop = false;
             // 
-            // panelSaisi
+            // panelSaisie
             // 
-            panelSaisi.Controls.Add(messageIntervale);
-            panelSaisi.Controls.Add(dptFin);
-            panelSaisi.Controls.Add(label2);
-            panelSaisi.Controls.Add(label1);
-            panelSaisi.Controls.Add(dptDebut);
-            panelCentral.Controls.Add(message);
-            panelSaisi.Controls.Add(imgApercu);
-            panelSaisi.Controls.Add(imgImprimer);
-            panelSaisi.Location = new Point(519, 28);
-            panelSaisi.Name = "panelSaisi";
-            panelSaisi.Size = new Size(392, 366);
-            panelSaisi.TabIndex = 0;
+            panelSaisie.Controls.Add(messageIntervale);
+            panelSaisie.Controls.Add(dtpFin);
+            panelSaisie.Controls.Add(label2);
+            panelSaisie.Controls.Add(label1);
+            panelSaisie.Controls.Add(dtpDebut);
+            panelSaisie.Controls.Add(imgApercu);
+            panelSaisie.Controls.Add(imgImprimer);
+            panelSaisie.Location = new Point(519, 28);
+            panelSaisie.Name = "panelSaisie";
+            panelSaisie.Size = new Size(392, 366);
+            panelSaisie.TabIndex = 0;
             // 
-            // dptFin
+            // dtpFin
             // 
-            dptFin.Location = new Point(67, 75);
-            dptFin.Name = "dptFin";
-            dptFin.Size = new Size(200, 23);
-            dptFin.TabIndex = 15;
-            dptFin.ValueChanged += dptFin_ValueChanged;
+            dtpFin.Location = new Point(67, 75);
+            dtpFin.Name = "dtpFin";
+            dtpFin.Size = new Size(200, 23);
+            dtpFin.TabIndex = 15;
+            dtpFin.ValueChanged += dtpFin_ValueChanged;
             // 
             // label2
             // 
@@ -114,13 +114,13 @@
             label1.TabIndex = 4;
             label1.Text = "Du";
             // 
-            // dptDebut
+            // dtpDebut
             // 
-            dptDebut.Location = new Point(67, 28);
-            dptDebut.Name = "dptDebut";
-            dptDebut.Size = new Size(200, 23);
-            dptDebut.TabIndex = 3;
-            dptDebut.ValueChanged += dptDebut_ValueChanged;
+            dtpDebut.Location = new Point(67, 28);
+            dtpDebut.Name = "dtpDebut";
+            dtpDebut.Size = new Size(200, 23);
+            dtpDebut.TabIndex = 3;
+            dtpDebut.ValueChanged += dtpDebut_ValueChanged;
             // 
             // message
             // 
@@ -177,6 +177,10 @@
             messageIntervale.TabIndex = 14;
             messageIntervale.Text = "label1";
             // 
+            // printRendezVous
+            // 
+            printRendezVous.PrintPage += printRendezVous_PrintPage;
+            // 
             // FrmVisiteImpression
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -189,12 +193,13 @@
             Name = "FrmVisiteImpression";
             Text = "FrmVisiteImpression";
             Load += FrmVisiteImpression_Load;
+            Resize += FrmVisiteImpression_Resize;
             Controls.SetChildIndex(lblTitre, 0);
             Controls.SetChildIndex(panelCentral, 0);
             panelCentral.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)imgGsb).EndInit();
-            panelSaisi.ResumeLayout(false);
-            panelSaisi.PerformLayout();
+            panelSaisie.ResumeLayout(false);
+            panelSaisie.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)imgApercu).EndInit();
             ((System.ComponentModel.ISupportInitialize)imgImprimer).EndInit();
             ResumeLayout(false);
@@ -207,15 +212,15 @@
         private System.Drawing.Printing.PrintDocument printRendezVous;
         private PrintDialog choixImprimante;
         private PrintPreviewDialog apercuRendezVous;
-        private Panel panelSaisi;
+        private Panel panelSaisie;
         private PictureBox imgGsb;
         private PictureBox imgImprimer;
         private PictureBox imgApercu;
-        private DateTimePicker dptDebut;
+        private DateTimePicker dtpDebut;
         private Label message;
         private Label messageIntervale;
         private Label label1;
-        private DateTimePicker dptFin;
+        private DateTimePicker dtpFin;
         private Label label2;
     }
 }

@@ -16,10 +16,6 @@ namespace Interface
         public FrmVisiteImpression(Session uneSession) : base(uneSession)
         {
             InitializeComponent();
-
-            // Raccordement manuel des méthodes événementielles manquantes dans le Designer
-            this.Resize += FrmVisiteImpression_Resize;
-            this.printRendezVous.PrintPage += printRendezVous_PrintPage;
         }
 
         #region procédures événementielles
@@ -38,12 +34,12 @@ namespace Interface
             if (lesVisites.Count == 0)
             {
                 message.Text = "Aucun rendez-vous planifié pour le moment.";
-                panelSaisi.Visible = false; // Masque la zone de saisie
+                panelSaisie.Visible = false; // Masque la zone de saisie
             }
             else
             {
                 message.Text = string.Empty;
-                panelSaisi.Visible = true;
+                panelSaisie.Visible = true;
             }
         }
 
@@ -54,18 +50,18 @@ namespace Interface
             centrerFormulaire();
         }
 
-        // 4. dtpDebut_ValueChanged (dptDebut dans ton designer)
-        private void dptDebut_ValueChanged(object sender, EventArgs e)
+        // 4. dtpDebut_ValueChanged
+        private void dtpDebut_ValueChanged(object sender, EventArgs e)
         {
             // Efface l'éventuel message affiché dans le label messageIntervale
             messageIntervale.Text = string.Empty;
 
             // Fixe la valeur minimale de dtpFin à dtpDebut + 7
-            dptFin.MinDate = dptDebut.Value.AddDays(7);
+            dtpFin.MinDate = dtpDebut.Value.AddDays(7);
         }
 
-        // 4. dtpFin_ValueChanged (dptFin dans ton designer)
-        private void dptFin_ValueChanged(object sender, EventArgs e)
+        // 4. dtpFin_ValueChanged
+        private void dtpFin_ValueChanged(object sender, EventArgs e)
         {
             // Efface l'éventuel message affiché dans le label messageIntervale
             messageIntervale.Text = string.Empty;
@@ -75,7 +71,7 @@ namespace Interface
         private void imgImprimer_Click(object sender, EventArgs e)
         {
             // Vérifie qu'il existe au moins une visite dans l'intervalle demandé
-            bool visiteExiste = lesVisites.Any(v => v.DateEtHeure.Date >= dptDebut.Value.Date && v.DateEtHeure.Date <= dptFin.Value.Date);
+            bool visiteExiste = lesVisites.Any(v => v.DateEtHeure.Date >= dtpDebut.Value.Date && v.DateEtHeure.Date <= dtpFin.Value.Date);
 
             if (!visiteExiste)
             {
@@ -101,7 +97,7 @@ namespace Interface
         private void imgApercu_Click(object sender, EventArgs e)
         {
             // Même traitement que pour l'impression
-            bool visiteExiste = lesVisites.Any(v => v.DateEtHeure.Date >= dptDebut.Value.Date && v.DateEtHeure.Date <= dptFin.Value.Date);
+            bool visiteExiste = lesVisites.Any(v => v.DateEtHeure.Date >= dtpDebut.Value.Date && v.DateEtHeure.Date <= dtpFin.Value.Date);
 
             if (!visiteExiste)
             {
@@ -133,6 +129,14 @@ namespace Interface
             Font police = new Font("Arial", 10, FontStyle.Bold);
             Brush brush = Brushes.Black;
 
+            int largeurTableau = lesColonnes.Sum(col => col.Largeur);
+            int largeurTitre = Math.Min(largeurTableau, e.MarginBounds.Width);
+
+            string titre = $"Mes rendez-vous entre le {dtpDebut.Value:dddd d MMMM yyyy} et le {dtpFin.Value:dddd d MMMM yyyy}";
+            Rectangle rectTitre = new Rectangle(margeGauche, margeHaut, largeurTitre, hauteurLigne);
+            e.Graphics.DrawRectangle(Pens.Black, rectTitre);
+            e.Graphics.DrawString(titre, police, brush, rectTitre, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+
             int y = margeHaut + hauteurLigne + 10;
             int x = margeGauche;
 
@@ -148,7 +152,7 @@ namespace Interface
             Font policeCorps = new Font("Arial", 9, FontStyle.Regular);
 
             // Filtrer les visites selon l'intervalle sélectionné
-            var visitesAPrint = lesVisites.Where(v => v.DateEtHeure.Date >= dptDebut.Value.Date && v.DateEtHeure.Date <= dptFin.Value.Date).OrderBy(v => v.DateEtHeure).ToList();
+            var visitesAPrint = lesVisites.Where(v => v.DateEtHeure.Date >= dtpDebut.Value.Date && v.DateEtHeure.Date <= dtpFin.Value.Date).OrderBy(v => v.DateEtHeure).ToList();
 
             foreach (var visite in visitesAPrint)
             {
@@ -197,14 +201,21 @@ namespace Interface
         private void parametrerComposant()
         {
             this.lblTitre.Text = "Impression des rendez-vous sur une période";
+            panelCentral.Anchor = AnchorStyles.None;
+            panelSaisie.Anchor = AnchorStyles.None;
+            message.Text = string.Empty;
+            messageIntervale.Text = string.Empty;
 
-            // fixe les propriétés MinDate et MaxDate du composant dptDebut (aujourd'hui à +53 jours)
-            dptDebut.MinDate = DateTime.Today;
-            dptDebut.MaxDate = DateTime.Today.AddDays(53);
+            // fixe les propriétés MinDate et MaxDate du composant dtpDebut (aujourd'hui à +53 jours)
+            dtpDebut.MinDate = DateTime.Today;
+            dtpDebut.MaxDate = DateTime.Today.AddDays(53);
 
-            // fixe les propriétés MinDate et MaxDate du composant dptFin (aujourd'hui + 7 à aujourd'hui + 60)
-            dptFin.MinDate = DateTime.Today.AddDays(7);
-            dptFin.MaxDate = DateTime.Today.AddDays(60);
+            // fixe les propriétés MinDate et MaxDate du composant dtpFin (aujourd'hui + 7 à aujourd'hui + 60)
+            dtpFin.MinDate = DateTime.Today.AddDays(7);
+            dtpFin.MaxDate = DateTime.Today.AddDays(60);
+
+            dtpDebut.Value = DateTime.Today;
+            dtpFin.Value = DateTime.Today.AddDays(7);
         }
 
         private void centrerFormulaire()
