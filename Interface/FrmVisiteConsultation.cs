@@ -22,9 +22,17 @@ namespace Interface
         private void FrmConsultation_Load(object sender, EventArgs e)
         {
             parametrerComposant();
-            remplirDgvVisites();
-            afficher();
             centrerFormulaire();
+
+            if (session.MesVisites.Count > 0)
+            {
+                remplirDgvVisites();
+                afficher();
+            }
+            else
+            {
+                label1.Text = "Aucune visite enregistrée.";
+            }
         }
 
         private void FrmVisiteConsultation_Resize(object sender, EventArgs e)
@@ -250,36 +258,39 @@ namespace Interface
 
         private void afficher()
         {
-            Visite? visite = getVisite();
-            if (visite == null)
+            if (dgvVisites.SelectedRows.Count > 0)
             {
-                ViderAffichage();
-                return;
-            }
+                Visite? visite = (Visite?)dgvVisites.SelectedRows[0].Cells["Visite"].Value;
+                if (visite == null)
+                {
+                    ViderAffichage();
+                    return;
+                }
 
-            lblPraticien.Text = visite.LePraticien.NomPrenom;
-            lblRue.Text = $"{visite.LePraticien.Rue} - {visite.LePraticien.CodePostal} {visite.LePraticien.Ville}";
-            lblTelephone.Text = visite.LePraticien.Telephone;
-            lblEmail.Text = visite.LePraticien.Email;
-            lblType.Text = visite.LePraticien.Type?.Libelle ?? string.Empty;
-            lblSpecialite.Text = visite.LePraticien.Specialite?.Libelle ?? string.Empty;
-            lblMotif.Text = visite.LeMotif.Libelle;
-            lblBilan.Text = visite.Bilan ?? string.Empty;
+                lblPraticien.Text = visite.LePraticien.NomPrenom;
+                lblRue.Text = $"{visite.LePraticien.Rue} - {visite.LePraticien.CodePostal} {visite.LePraticien.Ville}";
+                lblTelephone.Text = visite.LePraticien.Telephone;
+                lblEmail.Text = visite.LePraticien.Email;
+                lblType.Text = visite.LePraticien.Type?.Libelle ?? string.Empty;
+                lblSpecialite.Text = visite.LePraticien.Specialite?.Libelle ?? string.Empty;
+                lblMotif.Text = visite.LeMotif.Libelle;
+                lblBilan.Text = visite.Bilan ?? string.Empty;
 
-            lstMedicament.Items.Clear();
-            if (visite.PremierMedicament != null)
-            {
-                lstMedicament.Items.Add(visite.PremierMedicament.Nom);
-            }
-            if (visite.SecondMedicament != null)
-            {
-                lstMedicament.Items.Add(visite.SecondMedicament.Nom);
-            }
+                lstMedicament.Items.Clear();
+                if (visite.PremierMedicament != null)
+                {
+                    lstMedicament.Items.Add(visite.PremierMedicament.Nom);
+                }
+                if (visite.SecondMedicament != null)
+                {
+                    lstMedicament.Items.Add(visite.SecondMedicament.Nom);
+                }
 
-            dgvEchantillon.Rows.Clear();
-            foreach (KeyValuePair<Medicament, int> echantillon in visite)
-            {
-                dgvEchantillon.Rows.Add(echantillon.Key.Nom, echantillon.Value);
+                dgvEchantillon.Rows.Clear();
+                foreach (KeyValuePair<Medicament, int> echantillon in visite)
+                {
+                    dgvEchantillon.Rows.Add(echantillon.Key.Nom, echantillon.Value);
+                }
             }
         }
 
