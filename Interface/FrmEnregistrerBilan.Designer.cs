@@ -33,27 +33,27 @@
             panelCentral = new Panel();
             panelDroite = new Panel();
             label6 = new Label();
-            dataGridView1 = new DataGridView();
-            button1 = new Button();
+            dgvEchantillon = new DataGridView();
+            btnAjouter = new Button();
             label5 = new Label();
-            numericUpDown1 = new NumericUpDown();
-            comboBox1 = new ComboBox();
+            cptQuantite = new NumericUpDown();
+            cbxEchantillon = new ComboBox();
             label4 = new Label();
             label3 = new Label();
             panelGauche = new Panel();
             cbxSecondMedicament = new ComboBox();
             cbxPremierMedicament = new ComboBox();
             label7 = new Label();
-            textBox1 = new TextBox();
-            button2 = new Button();
+            txtBilan = new TextBox();
+            btnEnregistrer = new Button();
             label2 = new Label();
             label1 = new Label();
             panelHaut = new Panel();
             panel.SuspendLayout();
             panelCentral.SuspendLayout();
             panelDroite.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvEchantillon).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cptQuantite).BeginInit();
             panelGauche.SuspendLayout();
             SuspendLayout();
             // 
@@ -83,11 +83,11 @@
             // panelDroite
             // 
             panelDroite.Controls.Add(label6);
-            panelDroite.Controls.Add(dataGridView1);
-            panelDroite.Controls.Add(button1);
+            panelDroite.Controls.Add(dgvEchantillon);
+            panelDroite.Controls.Add(btnAjouter);
             panelDroite.Controls.Add(label5);
-            panelDroite.Controls.Add(numericUpDown1);
-            panelDroite.Controls.Add(comboBox1);
+            panelDroite.Controls.Add(cptQuantite);
+            panelDroite.Controls.Add(cbxEchantillon);
             panelDroite.Controls.Add(label4);
             panelDroite.Controls.Add(label3);
             panelDroite.Location = new Point(601, 17);
@@ -104,22 +104,22 @@
             label6.TabIndex = 7;
             label6.Text = "Liste des médicaments distribués";
             // 
-            // dataGridView1
+            // dgvEchantillon
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(17, 99);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(564, 212);
-            dataGridView1.TabIndex = 6;
+            dgvEchantillon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvEchantillon.Location = new Point(17, 99);
+            dgvEchantillon.Name = "dgvEchantillon";
+            dgvEchantillon.Size = new Size(564, 212);
+            dgvEchantillon.TabIndex = 6;
             // 
-            // button1
+            // btnAjouter
             // 
-            button1.Location = new Point(350, 54);
-            button1.Name = "button1";
-            button1.Size = new Size(90, 23);
-            button1.TabIndex = 5;
-            button1.Text = "Ajouter";
-            button1.UseVisualStyleBackColor = true;
+            btnAjouter.Location = new Point(350, 54);
+            btnAjouter.Name = "btnAjouter";
+            btnAjouter.Size = new Size(90, 23);
+            btnAjouter.TabIndex = 5;
+            btnAjouter.Text = "Ajouter";
+            btnAjouter.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -130,22 +130,22 @@
             label5.TabIndex = 4;
             label5.Text = "Quantité";
             // 
-            // numericUpDown1
+            // cptQuantite
             // 
-            numericUpDown1.Location = new Point(250, 54);
-            numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(94, 23);
-            numericUpDown1.TabIndex = 3;
-            numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            cptQuantite.Location = new Point(250, 54);
+            cptQuantite.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            cptQuantite.Name = "cptQuantite";
+            cptQuantite.Size = new Size(94, 23);
+            cptQuantite.TabIndex = 3;
+            cptQuantite.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // comboBox1
+            // cbxEchantillon
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(17, 54);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(227, 23);
-            comboBox1.TabIndex = 2;
+            cbxEchantillon.FormattingEnabled = true;
+            cbxEchantillon.Location = new Point(17, 54);
+            cbxEchantillon.Name = "cbxEchantillon";
+            cbxEchantillon.Size = new Size(227, 23);
+            cbxEchantillon.TabIndex = 2;
             // 
             // label4
             // 
@@ -170,8 +170,8 @@
             panelGauche.Controls.Add(cbxSecondMedicament);
             panelGauche.Controls.Add(cbxPremierMedicament);
             panelGauche.Controls.Add(label7);
-            panelGauche.Controls.Add(textBox1);
-            panelGauche.Controls.Add(button2);
+            panelGauche.Controls.Add(txtBilan);
+            panelGauche.Controls.Add(btnEnregistrer);
             panelGauche.Controls.Add(label2);
             panelGauche.Controls.Add(label1);
             panelGauche.Location = new Point(13, 17);
@@ -204,23 +204,23 @@
             label7.TabIndex = 4;
             label7.Text = "Bilan de la visite";
             // 
-            // textBox1
+            // txtBilan
             // 
-            textBox1.Location = new Point(12, 99);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(531, 173);
-            textBox1.TabIndex = 3;
+            txtBilan.Location = new Point(12, 99);
+            txtBilan.Multiline = true;
+            txtBilan.Name = "txtBilan";
+            txtBilan.Size = new Size(531, 173);
+            txtBilan.TabIndex = 3;
             // 
-            // button2
+            // btnEnregistrer
             // 
-            button2.BackColor = Color.Red;
-            button2.Location = new Point(404, 278);
-            button2.Name = "button2";
-            button2.Size = new Size(151, 33);
-            button2.TabIndex = 2;
-            button2.Text = "Enregistrer la fiche visite";
-            button2.UseVisualStyleBackColor = false;
+            btnEnregistrer.BackColor = Color.Red;
+            btnEnregistrer.Location = new Point(404, 278);
+            btnEnregistrer.Name = "btnEnregistrer";
+            btnEnregistrer.Size = new Size(151, 33);
+            btnEnregistrer.TabIndex = 2;
+            btnEnregistrer.Text = "Enregistrer la fiche visite";
+            btnEnregistrer.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -267,8 +267,8 @@
             panelCentral.ResumeLayout(false);
             panelDroite.ResumeLayout(false);
             panelDroite.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvEchantillon).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cptQuantite).EndInit();
             panelGauche.ResumeLayout(false);
             panelGauche.PerformLayout();
             ResumeLayout(false);
@@ -286,14 +286,14 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private ComboBox comboBox1;
+        private ComboBox cbxEchantillon;
         private Label label5;
-        private NumericUpDown numericUpDown1;
-        private Button button1;
+        private NumericUpDown cptQuantite;
+        private Button btnAjouter;
         private Label label6;
-        private DataGridView dataGridView1;
-        private Button button2;
-        private TextBox textBox1;
+        private DataGridView dgvEchantillon;
+        private Button btnEnregistrer;
+        private TextBox txtBilan;
         private Label label7;
         private ComboBox cbxSecondMedicament;
         private ComboBox cbxPremierMedicament;
