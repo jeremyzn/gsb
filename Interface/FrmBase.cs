@@ -73,7 +73,7 @@ namespace Interface
 
         private void listePraticien_Click(object sender, EventArgs e)
         {
-            // ouvrirFormulaire(new FrmPraticienListe(session));
+            ouvrirFormulaire(new FrmPraticienListe(session));
         }
 
         private void nouveauPraticien_Click(object sender, EventArgs e)
