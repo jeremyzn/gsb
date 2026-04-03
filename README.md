@@ -46,7 +46,7 @@ Depuis la racine du dépôt :
 ```bash
 dotnet restore Gsb2026.slnx
 dotnet build Gsb2026.slnx
-dotnet run --project /home/runner/work/gsb/gsb/Interface/Interface.csproj
+dotnet run --project Interface/Interface.csproj
 ```
 
 > Sur Linux/macOS, la compilation de `Interface` peut nécessiter `EnableWindowsTargeting=true` mais l’application WinForms reste destinée à Windows.
