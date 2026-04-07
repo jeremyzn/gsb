@@ -17,6 +17,9 @@
     <Compile Update="FrmEnregistrerBilan.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmAjoutPraticien.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmVisiteConsultation.cs">
       <SubType>Form</SubType>
     </Compile>
