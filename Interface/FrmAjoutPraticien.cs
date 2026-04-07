@@ -6,9 +6,15 @@ namespace Interface
 {
     public partial class FrmAjoutPraticien : FrmBase
     {
+        private static readonly string[] noms = ["Martin", "Bernard", "Dubois", "Moreau", "Garcia", "Petit", "Roux", "Faure", "Andre", "Mercier"];
+        private static readonly string[] prenoms = ["Lucas", "Emma", "Louis", "Lea", "Hugo", "Jade", "Nathan", "Chloe", "Noah", "Sarah"];
+        private static readonly string[] rues = ["Rue de la Paix", "Avenue Victor Hugo", "Rue Nationale", "Boulevard Voltaire", "Rue des Lilas", "Rue des Ecoles", "Rue Jean Jaures", "Avenue de la Gare"];
+
         public FrmAjoutPraticien(Session uneSession) : base(uneSession)
         {
             InitializeComponent();
+            KeyPreview = true;
+            KeyDown += FrmAjoutPraticien_KeyDown;
         }
 
         #region procédures événementielles
@@ -45,7 +51,8 @@ namespace Interface
             cbxSpecialite.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxSpecialite.SelectedIndex = -1;
 
-            mtbTelephone.Mask = "00 00 00 00 00 00";
+            mtbTelephone.Mask = "00 00 00 00 00";
+            mtbTelephone.TextMaskFormat = MaskFormat.IncludeLiterals;
 
             txtVille.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             txtVille.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -218,6 +225,39 @@ namespace Interface
         private void centrerFormulaire()
         {
             panelCentral.Left = (this.ClientSize.Width - panelCentral.Width) / 2;
+        }
+
+        private void remplirChampsAleatoires()
+        {
+            txtNom.Text = noms[Random.Shared.Next(noms.Length)];
+            txtPrenom.Text = prenoms[Random.Shared.Next(prenoms.Length)];
+            txtRue.Text = $"{Random.Shared.Next(1, 200)} {rues[Random.Shared.Next(rues.Length)]}";
+
+            if (session.MesVilles.Count > 0)
+            {
+                txtVille.Text = session.MesVilles[Random.Shared.Next(session.MesVilles.Count)].Nom;
+            }
+
+            mtbTelephone.Text = $"0{Random.Shared.Next(1, 10)}{Random.Shared.Next(0, 100000000):00000000}";
+            txtEmail.Text = $"{txtPrenom.Text.ToLowerInvariant()}.{txtNom.Text.ToLowerInvariant()}{Random.Shared.Next(10, 999)}@mail.fr";
+
+            if (cbxType.Items.Count > 0)
+            {
+                cbxType.SelectedIndex = Random.Shared.Next(cbxType.Items.Count);
+            }
+
+            cbxSpecialite.SelectedIndex = cbxSpecialite.Items.Count > 0 && Random.Shared.NextDouble() >= 0.5
+                ? Random.Shared.Next(cbxSpecialite.Items.Count)
+                : -1;
+        }
+
+        private void FrmAjoutPraticien_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F8)
+            {
+                remplirChampsAleatoires();
+                e.Handled = true;
+            }
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
