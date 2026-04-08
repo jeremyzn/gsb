@@ -103,7 +103,7 @@
             cbxPraticien.FormattingEnabled = true;
             cbxPraticien.Location = new Point(64, 41);
             cbxPraticien.Name = "cbxPraticien";
-            cbxPraticien.Size = new Size(810, 23);
+            cbxPraticien.Size = new Size(342, 23);
             cbxPraticien.TabIndex = 1;
             cbxPraticien.SelectedIndexChanged += cbxPraticien_SelectedIndexChanged;
             // 
@@ -119,6 +119,7 @@
             // btnModifier
             // 
             btnModifier.BackColor = Color.White;
+            btnModifier.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnModifier.ForeColor = SystemColors.HotTrack;
             btnModifier.Location = new Point(64, 445);
             btnModifier.Name = "btnModifier";
@@ -131,6 +132,7 @@
             // btnSupprimer
             // 
             btnSupprimer.BackColor = Color.White;
+            btnSupprimer.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSupprimer.ForeColor = Color.Red;
             btnSupprimer.Location = new Point(605, 445);
             btnSupprimer.Name = "btnSupprimer";
@@ -209,7 +211,7 @@
             cbxType.FormattingEnabled = true;
             cbxType.Location = new Point(64, 375);
             cbxType.Name = "cbxType";
-            cbxType.Size = new Size(286, 23);
+            cbxType.Size = new Size(269, 23);
             cbxType.TabIndex = 10;
             // 
             // messageTelephone
@@ -237,7 +239,7 @@
             mtbTelephone.Location = new Point(64, 301);
             mtbTelephone.Mask = "00 00 00 00 00 00";
             mtbTelephone.Name = "mtbTelephone";
-            mtbTelephone.Size = new Size(286, 23);
+            mtbTelephone.Size = new Size(269, 23);
             mtbTelephone.TabIndex = 7;
             // 
             // messageVille
@@ -265,7 +267,7 @@
             cbxVille.FormattingEnabled = true;
             cbxVille.Location = new Point(64, 231);
             cbxVille.Name = "cbxVille";
-            cbxVille.Size = new Size(384, 23);
+            cbxVille.Size = new Size(342, 23);
             cbxVille.TabIndex = 4;
             // 
             // messageRue
@@ -292,7 +294,7 @@
             // 
             txtRue.Location = new Point(64, 161);
             txtRue.Name = "txtRue";
-            txtRue.Size = new Size(384, 23);
+            txtRue.Size = new Size(342, 23);
             txtRue.TabIndex = 1;
             // 
             // messagePrenom
@@ -335,7 +337,7 @@
             // 
             txtNom.Location = new Point(64, 91);
             txtNom.Name = "txtNom";
-            txtNom.Size = new Size(286, 23);
+            txtNom.Size = new Size(269, 23);
             txtNom.TabIndex = 5;
             // 
             // messageNom
