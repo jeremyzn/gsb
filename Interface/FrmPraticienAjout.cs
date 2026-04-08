@@ -6,9 +6,28 @@ namespace Interface
 {
     public partial class FrmPraticienAjout : FrmBase
     {
-        private static readonly string[] noms = ["Martin", "Bernard", "Dubois", "Moreau", "Garcia", "Petit", "Roux", "Faure", "Andre", "Mercier"];
-        private static readonly string[] prenoms = ["Lucas", "Emma", "Louis", "Lea", "Hugo", "Jade", "Nathan", "Chloe", "Noah", "Sarah"];
-        private static readonly string[] rues = ["Rue de la Paix", "Avenue Victor Hugo", "Rue Nationale", "Boulevard Voltaire", "Rue des Lilas", "Rue des Ecoles", "Rue Jean Jaures", "Avenue de la Gare"];
+        private static readonly string[] noms =
+        [
+            "Lemoine", "Carrière", "Vidal", "Rivière", "Ménard", "Aubry", "Chevalier", "Daumier", "Fournel", "Prudhomme",
+            "Garnier", "Lefèvre", "Renaud", "Brunet", "Marchand", "Arnaud", "Perrin", "Cordier", "Leroux", "Barbier",
+            "Collet", "Masson", "Bourdon", "Boulanger", "Giraud", "Guillot", "Delorme", "Renard", "Camus", "Pichon",
+            "Laplace", "Tessier", "Dumont", "Gallet", "Noiret", "Hamel", "Mallet", "Roussel", "Besson", "Granger"
+        ];
+
+        private static readonly string[] prenoms =
+        [
+            "Maël", "Inès", "Noémie", "Gabriel", "Léna", "Mathis", "Apolline", "Yanis", "Clémence", "Sacha",
+            "Théo", "Camille", "Mila", "Raphaël", "Nina", "Bastien", "Manon", "Axel", "Élise", "Tom",
+            "Jules", "Romane", "Émile", "Louna", "Arthur", "Zoé", "Nolan", "Lise", "Paul", "Sarah",
+            "Victor", "Lola", "Adam", "Anaïs", "Hugo", "Jeanne", "Evan", "Agathe", "Noah", "Lou"
+        ];
+
+        private static readonly string[] rues =
+        [
+            "Rue des Tilleuls", "Avenue des Cerisiers", "Rue des Violettes", "Boulevard des Alizés", "Rue du Moulin Vert", "Impasse du Levant", "Allée des Jasmins", "Avenue du Belvédère",
+            "Rue de la République", "Rue Victor Hugo", "Avenue Jean Jaurès", "Boulevard Gambetta", "Rue des Acacias", "Avenue des Érables", "Rue du Stade", "Rue du Château",
+            "Rue des Écoles", "Rue Pasteur", "Avenue de la Gare", "Rue des Bleuets", "Allée des Platanes", "Rue des Marronniers", "Avenue de l'Europe", "Rue du Commerce"
+        ];
 
         public FrmPraticienAjout(Session uneSession) : base(uneSession)
         {
@@ -239,7 +258,10 @@ namespace Interface
             }
 
             mtbTelephone.Text = $"0{Random.Shared.Next(1, 10)}{Random.Shared.Next(0, 100000000):00000000}";
-            txtEmail.Text = $"{txtPrenom.Text.ToLowerInvariant()}.{txtNom.Text.ToLowerInvariant()}{Random.Shared.Next(10, 999)}@mail.fr";
+
+            string prenomEmail = txtPrenom.Text.Trim().ToLowerInvariant().Replace(" ", string.Empty);
+            string nomEmail = txtNom.Text.Trim().ToLowerInvariant().Replace(" ", string.Empty);
+            txtEmail.Text = $"{prenomEmail}.{nomEmail}@laposte.net";
 
             if (cbxType.Items.Count > 0)
             {
