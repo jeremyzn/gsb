@@ -118,7 +118,7 @@
             // 
             // btnModifier
             // 
-            btnModifier.BackColor = Color.White;
+            btnModifier.BackColor = Color.Gainsboro;
             btnModifier.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnModifier.ForeColor = SystemColors.HotTrack;
             btnModifier.Location = new Point(64, 445);
@@ -131,7 +131,7 @@
             // 
             // btnSupprimer
             // 
-            btnSupprimer.BackColor = Color.White;
+            btnSupprimer.BackColor = Color.Gainsboro;
             btnSupprimer.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSupprimer.ForeColor = Color.Red;
             btnSupprimer.Location = new Point(605, 445);
