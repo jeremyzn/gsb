@@ -4,13 +4,13 @@ using System.Text.RegularExpressions;
 
 namespace Interface
 {
-    public partial class FrmAjoutPraticien : FrmBase
+    public partial class FrmPraticienAjout : FrmBase
     {
         private static readonly string[] noms = ["Martin", "Bernard", "Dubois", "Moreau", "Garcia", "Petit", "Roux", "Faure", "Andre", "Mercier"];
         private static readonly string[] prenoms = ["Lucas", "Emma", "Louis", "Lea", "Hugo", "Jade", "Nathan", "Chloe", "Noah", "Sarah"];
         private static readonly string[] rues = ["Rue de la Paix", "Avenue Victor Hugo", "Rue Nationale", "Boulevard Voltaire", "Rue des Lilas", "Rue des Ecoles", "Rue Jean Jaures", "Avenue de la Gare"];
 
-        public FrmAjoutPraticien(Session uneSession) : base(uneSession)
+        public FrmPraticienAjout(Session uneSession) : base(uneSession)
         {
             InitializeComponent();
             KeyPreview = true;

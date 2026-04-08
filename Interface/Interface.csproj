@@ -14,10 +14,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="FrmPraticienModification.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmEnregistrerBilan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmAjoutPraticien.cs">
+    <Compile Update="FrmPraticienAjout.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmVisiteConsultation.cs">

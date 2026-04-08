@@ -512,6 +512,22 @@ namespace Donnee
         /// <param name="lePraticien">Objet Praticien contenant les nouvelles informations</param>
         static public void modifierPraticien(Praticien lePraticien)
         {
+            using MySqlConnection cnx = ouvrirConnexion();
+            using MySqlCommand cmd = new MySqlCommand("modifierPraticien", cnx);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("_id", lePraticien.Id);
+            cmd.Parameters.AddWithValue("_nom", lePraticien.Nom);
+            cmd.Parameters.AddWithValue("_prenom", lePraticien.Prenom);
+            cmd.Parameters.AddWithValue("_rue", lePraticien.Rue);
+            cmd.Parameters.AddWithValue("_codePostal", lePraticien.CodePostal);
+            cmd.Parameters.AddWithValue("_ville", lePraticien.Ville);
+            cmd.Parameters.AddWithValue("_telephone", lePraticien.Telephone);
+            cmd.Parameters.AddWithValue("_email", lePraticien.Email);
+            cmd.Parameters.AddWithValue("_idType", lePraticien.Type?.Id);
+            cmd.Parameters.AddWithValue("_idSpecialite", string.IsNullOrWhiteSpace(lePraticien.Specialite?.Id) ? DBNull.Value : lePraticien.Specialite.Id);
+
+            cmd.ExecuteNonQuery();
         }
 
         /// <summary>
@@ -520,6 +536,12 @@ namespace Donnee
         /// <param name="id">ID du praticien à supprimer</param>
         static public void supprimerPraticien(int id)
         {
+            using MySqlConnection cnx = ouvrirConnexion();
+            using MySqlCommand cmd = new MySqlCommand("supprimerPraticien", cnx);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("_id", id);
+            cmd.ExecuteNonQuery();
         }
 
 

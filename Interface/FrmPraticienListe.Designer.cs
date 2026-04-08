@@ -37,14 +37,14 @@
             // 
             // lblTitre
             // 
-            lblTitre.Size = new Size(1281, 74);
+            lblTitre.Size = new Size(1095, 74);
             // 
             // panelCentral
             // 
             panelCentral.Controls.Add(dgvPraticiens);
             panelCentral.Location = new Point(26, 98);
             panelCentral.Name = "panelCentral";
-            panelCentral.Size = new Size(1229, 370);
+            panelCentral.Size = new Size(1012, 370);
             panelCentral.TabIndex = 13;
             // 
             // dgvPraticiens
@@ -52,14 +52,14 @@
             dgvPraticiens.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPraticiens.Location = new Point(0, 0);
             dgvPraticiens.Name = "dgvPraticiens";
-            dgvPraticiens.Size = new Size(1229, 370);
+            dgvPraticiens.Size = new Size(1037, 370);
             dgvPraticiens.TabIndex = 0;
             // 
             // FrmPraticienListe
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1281, 513);
+            ClientSize = new Size(1095, 553);
             Controls.Add(panelCentral);
             Icon = (Icon)resources.GetObject("$this.Icon");
             KeyPreview = true;
