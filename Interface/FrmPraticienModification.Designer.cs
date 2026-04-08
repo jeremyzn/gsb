@@ -119,7 +119,7 @@
             // btnModifier
             // 
             btnModifier.BackColor = Color.White;
-            btnModifier.ForeColor = SystemColors.ActiveCaption;
+            btnModifier.ForeColor = SystemColors.HotTrack;
             btnModifier.Location = new Point(64, 445);
             btnModifier.Name = "btnModifier";
             btnModifier.Size = new Size(269, 35);

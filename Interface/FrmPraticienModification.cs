@@ -80,7 +80,7 @@ namespace Interface
 
             rafraichirListePraticiens(null);
 
-            mtbTelephone.Mask = "00 00 00 00 00 00";
+            mtbTelephone.Mask = "00 00 00 00 00";
             mtbTelephone.TextMaskFormat = MaskFormat.IncludeLiterals;
 
             messageNom.Visible = false;
